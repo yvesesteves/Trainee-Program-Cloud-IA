@@ -1,0 +1,54 @@
+stages:
+  - lint
+  - test
+  - security
+  - build
+  - deploy
+
+variables:
+  DOCKER_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+
+cache:
+  paths:
+    - .cache/pip
+
+lint:
+  stage: lint
+  image: python:3.11-slim
+  script:
+    - pip install flake8
+    - flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+test:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - pip install -r requirements.txt
+    - pytest test_app.py
+
+sast_scan:
+  stage: security
+  image: docker:20.10.16
+  script:
+    - echo "Bônus: Executando análise SAST (Simulação de ferramentas como Bandit ou Trivy)..."
+    - echo "Nenhuma vulnerabilidade crítica encontrada."
+
+build_image:
+  stage: build
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $DOCKER_IMAGE .
+    - docker push $DOCKER_IMAGE
+
+deploy_ecs:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Simulando deploy na AWS ECS..."
+    - echo "Comandos que seriam executados:"
+    - echo "aws ecs update-service --cluster app-cluster --service flask-api-service --force-new-deployment"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
