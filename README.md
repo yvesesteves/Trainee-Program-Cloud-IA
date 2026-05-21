@@ -46,15 +46,15 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
    .\venv\Scripts\activate  (no Windows)
    source venv/bin/activate (No Linux/MAC)
 4. Instale as dependências:
-   ```bash
-   pip install -r requirements.txt
+      ```bash
+      pip install -r requirements.txt
 
 5. Execute os testes (Opcional, mas recomendado):
-   ```bash
-   pytest test_app.py
+      ```bash
+      pytest test_app.py
 6. Inicie o servidor local:
-   ```bash
-   python app.py
+      ```bash
+      python app.py
 -  A aplicação estará disponível na URL: http://localhost:5000
 
 ---
@@ -65,8 +65,8 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ### **Passo a passo**
 1. Abra o terminal na raiz do projeto (trainee-cloud-ia).
 2. Execute o comando do Docker Compose para construir a imagem e subir o container:
-   ```bash 
-   docker-compose up --build
+      ```bash 
+      docker-compose up --build
 
 3. Aguarde o download das dependências e a inicialização. Quando aparecer a mensagem indicando que o servidor está rodando, acesse no navegador:
 - Rota Principal: http://localhost:5000/
