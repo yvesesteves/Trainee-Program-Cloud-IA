@@ -41,8 +41,7 @@ Se você deseja rodar a aplicação diretamente na sua máquina utilizando um am
 3. Ative o ambiente virtual:
 - Obs: Caso você receba um erro vermelho dizendo que scripts estão desabilitados, execute o comando abaixo apenas uma vez como Administrador para liberar a execução:
    ```bash
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-   
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser 
    .\venv\Scripts\activate  (no Windows)
    source venv/bin/activate (No Linux/MAC)
 4. Instale as dependências:
@@ -100,5 +99,5 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 - Resolução de Problemas no Windows: Auxílio rápido para diagnosticar e contornar os bloqueios de execução de scripts (ExecutionPolicy) no PowerShell durante a criação do ambiente virtual.
 - O que funcionou bem: A geração de esqueletos estruturais (como a base do Dockerfile) acelerou a entrega, permitindo que o foco ficasse nas boas práticas de segurança, como o bloqueio de acessos root.
 ---
-### *Developed by Yves Esteves * 
+### *Developed by Yves Esteves* 
 
