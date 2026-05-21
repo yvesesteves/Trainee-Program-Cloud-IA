@@ -1,5 +1,4 @@
 #  **Desafio Técnico - Trainee Cloud & IA**
-## Develop by Yves Esteves
 - Este repositório contém a solução para o Desafio Técnico do Programa Trainee Cloud & IA. O objetivo central é demonstrar conhecimentos práticos em práticas DevOps, conteinerização de aplicações, automação de processos (CI/CD) e noções de infraestrutura em nuvem.
 
 ## **O que o programa faz**
